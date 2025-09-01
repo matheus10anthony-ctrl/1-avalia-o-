@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class SistemaEscolar {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double[] notas = new double[8];
+
+        // Entrada das 8 notas
+        for (int i = 0; i < 8; i++) {
+            System.out.print("Digite a " + (i+1) + "ª nota: ");
+            notas[i] = sc.nextDouble();
+        }
+
+        // Médias bimestrais
+        double[] mediasBimestrais = new double[4];
+        for (int i = 0; i < 4; i++) {
+            mediasBimestrais[i] = (notas[2*i] + notas[2*i+1]) / 2.0;
+        }
+
+        // Médias semestrais
+        double[] mediasSemestrais = new double[2];
+        for (int i = 0; i < 2; i++) {
+            mediasSemestrais[i] = (mediasBimestrais[2*i] + mediasBimestrais[2*i+1]) / 2.0;
+        }
+
+        // Média final
+        double mediaFinal = (mediasSemestrais[0] + mediasSemestrais[1]) / 2.0;
+
+        // Saída dos resultados
+        System.out.println("\n=== RESULTADOS ===");
+        for (int i = 0; i < 4; i++) {
+            System.out.printf("Média do %dº bimestre: %.2f\n", (i+1), mediasBimestrais[i]);
+        }
+        for (int i = 0; i < 2; i++) {
+            System.out.printf("Média do %dº semestre: %.2f\n", (i+1), mediasSemestrais[i]);
+        }
+        System.out.printf("Média final: %.2f\n", mediaFinal);
+
+        sc.close();
+    }
+}
+
+
+
+
+
+
+
+import java.util.Scanner;
+
+public class ConversaoTemperatura {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Entrada
+        System.out.print("Digite a temperatura em Celsius: ");
+        double celsius = sc.nextDouble();
+
+        // Conversões
+        double fahrenheit = (celsius * 9/5) + 32;
+        double kelvin = celsius + 273.15;
+
+        // Saída
+        System.out.println("\n=== CONVERSÃO DE TEMPERATURA ===");
+        System.out.printf("Temperatura em Celsius: %.2f °C\n", celsius);
+        System.out.printf("Temperatura em Fahrenheit: %.2f °F\n", fahrenheit);
+        System.out.printf("Temperatura em Kelvin: %.2f K\n", kelvin);
+
+        sc.close();
+    }
+}
